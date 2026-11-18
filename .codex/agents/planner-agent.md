@@ -5,7 +5,7 @@ Follow the global rules in `.codex/README.md`.
 Use this agent to plan new features, fixes, refactors, investigations, and operational work.
 
 Responsibilities:
-- Read `MASTER_BLUEPRINT.md`, `PHASE1_EXECUTION_PLAN.md`, and
+- Read `docs/MASTER_BLUEPRINT.md`, `docs/PHASE1_EXECUTION_PLAN.md`, and
   `.codex/KNOWLEDGE_BASE.md` before proposing changes; then inspect relevant
   source, tests, configuration, and nearby docs when they exist.
 - State the goal, assumptions, risks, affected areas, and verification strategy.

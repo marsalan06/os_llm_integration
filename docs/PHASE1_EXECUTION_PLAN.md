@@ -1,5 +1,5 @@
 # Phase 1 Execution Plan — OS-Layer AI
-**Parent Document:** `MASTER_BLUEPRINT.md`  
+**Parent Document:** `docs/MASTER_BLUEPRINT.md`
 **Phase:** Stage 1 – MVP  
 **Goal of this document:** Exact, actionable specification for the first shippable version.  
 **Last Updated:** 19 November 2026
@@ -66,7 +66,7 @@ Phase 1 is the **interaction kernel**. Stages 2–5 add power and memory around 
 
 ### 3.1 Locked Stage 1 First Principles (`S1-FP-001`)
 
-This plan implements the locked decision recorded in `MASTER_BLUEPRINT.md`:
+This plan implements the locked decision recorded in `docs/MASTER_BLUEPRINT.md`:
 
 1. The assistant runs only after explicit hotkey invocation.
 2. Inference is local or the request fails with a clear, actionable message.
@@ -89,6 +89,32 @@ This plan implements the locked decision recorded in `MASTER_BLUEPRINT.md`:
 These principles are acceptance constraints, not optional implementation
 preferences. Changing one requires an explicit update to `S1-FP-001` in the
 master blueprint and synchronization of this plan and the knowledge base.
+
+### 3.2 Decision Tracking And Commit Traceability
+
+`docs/DECISION_REGISTER.md` is the canonical ledger for Stage 1 decision
+status, approval evidence, verification, and associated implementation
+commits. The register does not replace the master blueprint or this plan; it
+links stable decision IDs back to their authoritative content.
+
+For every registered decision:
+
+1. Add or update the register entry in the same planning change that changes
+   the canonical decision.
+2. Include `Decision-ID: <ID>` trailers in implementation, correction,
+   rollback, and traceability commits associated with that decision.
+3. Record only full commit hashes that already exist. Leave the field `Pending`
+   until the implementation commit has been created.
+4. Backfill implementation hashes in a follow-up documentation commit because
+   a commit cannot contain its own final hash.
+5. Append later corrective, completion, or rollback hashes instead of erasing
+   earlier history.
+6. Mark implementation or verification complete only when the decision's full
+   scope or stated evidence is actually complete.
+
+The traceability documentation commit does not record its own hash in the
+register; its `Decision-ID:` trailer and Git history provide that link without
+creating an infinite self-reference chain.
 
 ---
 
@@ -140,8 +166,10 @@ must run on Windows to produce the accepted Windows build.
 ```
 os-layer-ai/
 ├── README.md
-├── MASTER_BLUEPRINT.md          # (reference)
-├── PHASE1_EXECUTION_PLAN.md     # this file
+├── docs/
+│   ├── MASTER_BLUEPRINT.md      # strategic reference
+│   ├── PHASE1_EXECUTION_PLAN.md # this file
+│   └── DECISION_REGISTER.md     # decision/commit traceability
 ├── pyproject.toml               # package metadata + dependencies
 ├── assets/
 │   └── icon.ico
@@ -413,7 +441,7 @@ hotkey/tray slice rather than being deferred to release.
 1. Working application (runnable on Windows)
 2. Clear README with setup steps (Ollama + model + run command)
 3. Default config and recommended models list
-4. This execution plan + Master Blueprint kept in repo
+4. This execution plan, Master Blueprint, and Decision Register kept in repo
 5. Short demo video or GIF of the core flow (optional but highly recommended)
 6. List of known limitations
 

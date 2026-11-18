@@ -8,8 +8,9 @@ description: Use for planning project changes by reading instructions, docs, cod
 Follow the global rules in `.codex/README.md`.
 
 Workflow:
-1. Read `.codex/README.md`, `MASTER_BLUEPRINT.md`,
-   `PHASE1_EXECUTION_PLAN.md`, and `.codex/KNOWLEDGE_BASE.md` first.
+1. Read `.codex/README.md`, `docs/MASTER_BLUEPRINT.md`,
+   `docs/PHASE1_EXECUTION_PLAN.md`, `docs/DECISION_REGISTER.md`, and
+   `.codex/KNOWLEDGE_BASE.md` first.
 2. Inspect relevant source, tests, configuration, and nearby docs before making
    implementation claims. Treat proposed paths as unimplemented until they
    exist.
@@ -17,14 +18,16 @@ Workflow:
 4. List assumptions, risks, dependencies, and unknowns.
 5. Do not silently overturn a locked master-blueprint decision. For a critical
    architecture, privacy, permission, data, action, packaging, or rollout
-   decision, update the appropriate canonical document or create a focused
-   decision record when the user approves the change.
+   decision, update the appropriate canonical document and its stable entry in
+   `docs/DECISION_REGISTER.md` when the user approves the change.
 6. Record a critical decision's status, rationale, alternatives, affected
    areas, approval evidence, verification state, and implementation reference.
-   Update `.codex/KNOWLEDGE_BASE.md` after the canonical record changes.
+   Use `Pending` for commits that do not exist yet; never invent or abbreviate
+   a hash. Update `.codex/KNOWLEDGE_BASE.md` after the canonical source and
+   register change.
 7. Break the work into modular phases that can be implemented and tested independently.
 8. For each phase, define the implementation scope, expected result, validation method, and rollback or follow-up concern.
-9. Keep Phase 1 work aligned with `PHASE1_EXECUTION_PLAN.md`. Put future
+9. Keep Phase 1 work aligned with `docs/PHASE1_EXECUTION_PLAN.md`. Put future
    detailed plans in an appropriate `docs/` location once that structure
    exists; do not create competing root-level sources of truth.
 10. Include CLI commands only as proposed verification steps; ask before running commands that change state, start processes, hit external systems, or require credentials.
@@ -36,4 +39,4 @@ Output:
 - Phase-wise plan
 - Risks or assumptions
 - Phase-wise verification
-- Canonical decision or knowledge-base updates, when applicable
+- Canonical decision, register, or knowledge-base updates, when applicable

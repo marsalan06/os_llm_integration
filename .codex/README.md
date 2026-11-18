@@ -22,13 +22,15 @@ read-only and has no file, shell, internet, or system mutation capabilities.
 
 Read project context in this order:
 
-1. `MASTER_BLUEPRINT.md` — source of truth for vision, locked principles,
+1. `docs/MASTER_BLUEPRINT.md` — source of truth for vision, locked principles,
    architecture, safety posture, and the multi-stage roadmap.
-2. `PHASE1_EXECUTION_PLAN.md` — source of truth for the active MVP scope,
+2. `docs/PHASE1_EXECUTION_PLAN.md` — source of truth for the active MVP scope,
    definition of done, component responsibilities, sequence, and test matrix.
-3. `.codex/KNOWLEDGE_BASE.md` — concise operational summary derived from the
-   two canonical documents; update it when either source changes.
-4. Relevant source, tests, configuration, and nearby documentation after those
+3. `docs/DECISION_REGISTER.md` — canonical ledger for decision lifecycle,
+   approval, verification, and associated full implementation commit hashes.
+4. `.codex/KNOWLEDGE_BASE.md` — concise operational summary derived from the
+   canonical documents and register; update it when any source changes.
+5. Relevant source, tests, configuration, and nearby documentation after those
    files exist.
 
 If summaries conflict with a canonical document, the canonical document wins.
@@ -209,6 +211,8 @@ loop is stable, lightweight, and understandable to a non-technical user.
 - Preserve unrelated user changes and keep edits within the requested scope.
 - Read the canonical documents before making product, architecture, scope, or
   sequencing claims.
+- Read `docs/DECISION_REGISTER.md` before planning or closing work governed by
+  a registered decision; never invent or abbreviate a commit hash.
 - Distinguish proposed structure from implemented behavior.
 - Keep the UI responsive by isolating blocking libraries from its thread.
 - Fail clearly when Ollama is stopped, a model is absent, the clipboard is

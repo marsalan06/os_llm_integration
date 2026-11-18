@@ -5,8 +5,12 @@
 **Active milestone:** Stage 1 / Phase 1 MVP
 
 This is the compact, project-local context for agents and contributors. It is
-derived from `MASTER_BLUEPRINT.md` and `PHASE1_EXECUTION_PLAN.md`; it does not
+derived from `docs/MASTER_BLUEPRINT.md` and `docs/PHASE1_EXECUTION_PLAN.md`; it does not
 replace either source of truth.
+
+Decision lifecycle, verification state, and commit associations live in
+`docs/DECISION_REGISTER.md`. This knowledge base summarizes those decisions but
+does not replace that ledger.
 
 ## Product In One Paragraph
 
@@ -260,12 +264,13 @@ These require implementation spikes or real-device evidence:
 4. Final recommended model list based on latency, quality, and peak memory.
 5. Exact compatible dependency pins after Windows verification.
 
-Record settled decisions in the canonical plan or a dedicated decision record,
-then update this knowledge base rather than allowing code and docs to diverge.
+Record settled decisions in the appropriate canonical source and
+`docs/DECISION_REGISTER.md`, then update this knowledge base rather than
+allowing code, decisions, and summaries to diverge.
 
 ## Maintenance Rule
 
 Update this file whenever either canonical document changes scope, architecture,
-roadmap, safety constraints, definition of done, or a previously open decision.
+roadmap, safety constraints, definition of done, or a registered/open decision.
 Keep implementation status factual: proposed files and libraries are not
 described as implemented until they exist and have been verified.

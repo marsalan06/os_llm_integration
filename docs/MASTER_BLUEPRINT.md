@@ -390,9 +390,22 @@ Every future PowerShell or file-write capability must pass through this gate.
 
 ## 12. Document Hierarchy
 
-- **This file (`MASTER_BLUEPRINT.md`)** = Single source of truth for vision, decisions, architecture, competition, and roadmap.
-- **`PHASE1_EXECUTION_PLAN.md`** = Detailed, actionable plan for the first release only.
+- **This file (`docs/MASTER_BLUEPRINT.md`)** = Source of truth for vision, locked
+  product/architecture decisions, safety constraints, competition, and roadmap.
+- **`docs/PHASE1_EXECUTION_PLAN.md`** = Source of truth for the detailed, actionable
+  scope and acceptance contract of the first release.
+- **`docs/DECISION_REGISTER.md`** = Canonical decision lifecycle and
+  traceability ledger. It links stable decision IDs to their source, plan,
+  verification, and full implementation commit hashes without replacing the
+  source decision content.
+- **`.codex/KNOWLEDGE_BASE.md`** = Derived working summary for agents and
+  contributors; it is updated after canonical sources or decision state change.
+- **`.codex/README.md`** = Workflow/read-order guide, not product authority.
 - Future phase documents will reference this master blueprint.
+
+If the decision register conflicts with a linked canonical source, the source
+wins for decision content and the register must be corrected. The register is
+authoritative for decision lifecycle and commit-traceability state.
 
 ---
 
